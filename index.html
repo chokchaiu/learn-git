@@ -1,37 +1,218 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>นางสงกรานต์</title>
     <style>
+        :root {
+            --bg-start: #f6f0ff;
+            --bg-end: #ffe5d1;
+            --card: rgba(255, 255, 255, 0.95);
+            --text-primary: #222;
+            --text-secondary: #555;
+            --accent: #ff6b6b;
+            --shadow: 0 22px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
+            min-height: 100vh;
+            font-family: "Inter", "Noto Sans Thai", Arial, sans-serif;
+            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.85), transparent 30%),
+                        linear-gradient(135deg, var(--bg-start), var(--bg-end));
+            color: var(--text-primary);
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.55) 0, transparent 40%),
+                              radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.35) 0, transparent 35%),
+                              radial-gradient(circle at 50% 90%, rgba(255, 255, 255, 0.25) 0, transparent 40%);
+            pointer-events: none;
         }
-        h1 {
-            color: #333;
+
+        .page {
+            display: grid;
+            min-height: 100vh;
+            place-items: center;
+            padding: 32px;
         }
-        p {
-            color: #666;
+
+        .hero-card {
+            width: min(1040px, 100%);
+            background: var(--card);
+            border-radius: 32px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 0;
+            border: 1px solid rgba(255, 255, 255, 0.65);
+        }
+
+        .hero-content {
+            padding: 56px 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .hero-content small {
+            display: inline-block;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .hero-content h1 {
+            margin: 0;
+            font-size: clamp(2.8rem, 4.5vw, 4.8rem);
+            line-height: 1.02;
+        }
+
+        .hero-content p {
+            margin: 0;
+            color: var(--text-secondary);
+            max-width: 44rem;
+            line-height: 1.75;
+            font-size: 1.05rem;
+        }
+
+        .hero-content .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            padding: 0 26px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+        }
+
+        .button-primary {
+            background: linear-gradient(135deg, #ff8c6a, #ff4f7a);
+            color: white;
+            box-shadow: 0 18px 30px rgba(255, 107, 107, 0.22);
+        }
+
+        .button-secondary {
+            background: rgba(34, 34, 34, 0.06);
+            color: var(--text-primary);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            opacity: 0.97;
+        }
+
+        .hero-image {
+            position: relative;
+            padding: 36px;
+            display: grid;
+            place-items: center;
+            background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.75), transparent 35%),
+                        linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.95));
+        }
+
+        .illustration {
+            width: min(100%, 420px);
+            aspect-ratio: 1 / 1;
+            border-radius: 28px;
+            background: linear-gradient(180deg, #ffeade 0%, #fff3f1 35%, #fff 100%);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 18px 50px rgba(255, 112, 112, 0.14);
+            display: grid;
+            place-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .illustration::before {
+            content: "\1F385";
+            font-size: 5rem;
+            position: absolute;
+            top: 18px;
+            left: 18px;
+        }
+
+        .illustration .placeholder {
+            text-align: center;
+            color: #7f5e3b;
+            padding: 28px;
+        }
+
+        .illustration .placeholder h2 {
+            margin: 0 0 12px;
+            font-size: 1.55rem;
+        }
+
+        .illustration .placeholder p {
+            margin: 0;
+            color: #8f6c58;
             line-height: 1.6;
+        }
+
+        @media (max-width: 860px) {
+            .hero-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 620px) {
+            body {
+                padding: 20px;
+            }
+
+            .hero-card {
+                border-radius: 24px;
+            }
+
+            .hero-content {
+                padding: 36px 28px;
+            }
+
+            .hero-image {
+                padding: 24px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to My Homepage</h1>
-        <p>Hi there! This is your homepage.</p>
-    </div>
+    <main class="page">
+        <section class="hero-card">
+            <div class="hero-content">
+                <small>เทศกาลสงกรานต์</small>
+                <h1>ยินดีต้อนรับสู่โลกของ นางสงกรานต์</h1>
+                <p>ออกแบบหน้าแรกให้สดใส แสดงความเป็นไทยแบบร่วมสมัยด้วยโทนสีอบอุ่น และพื้นที่ภาพการ์ตูนที่พร้อมใช้เป็นส่วนหนึ่งของดีไซน์.</p>
+                <div class="actions">
+                    <a href="#" class="button button-primary">ดูภาพตัวอย่าง</a>
+                    <a href="#" class="button button-secondary">อ่านเรื่องราว</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="illustration">
+                    <div class="placeholder">
+                        <h2>ภาพการ์ตูน นางสงกรานต์</h2>
+                        <p>วางรูปจริงตรงนี้ได้ง่าย ๆ เมื่อพร้อม</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
-</html>
+</html>+
