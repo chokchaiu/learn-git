@@ -190,6 +190,48 @@
                 padding: 24px;
             }
         }
+
+        .history-section {
+            margin-top: 80px;
+            max-width: 1040px;
+            width: 100%;
+            background: var(--card);
+            border-radius: 32px;
+            box-shadow: var(--shadow);
+            padding: 56px 48px;
+            border: 1px solid rgba(255, 255, 255, 0.65);
+        }
+
+        .history-section h2 {
+            margin: 0 0 32px;
+            font-size: 2.5rem;
+            color: var(--text-primary);
+        }
+
+        .history-section p {
+            margin: 0 0 24px;
+            line-height: 1.75;
+            color: var(--text-secondary);
+        }
+
+        .history-section .highlight {
+            background: linear-gradient(135deg, rgba(255, 140, 106, 0.1), rgba(255, 79, 122, 0.1));
+            padding: 24px;
+            border-radius: 16px;
+            border-left: 4px solid var(--accent);
+            margin: 32px 0;
+        }
+
+        @media (max-width: 620px) {
+            .history-section {
+                margin-top: 40px;
+                padding: 36px 28px;
+            }
+
+            .history-section h2 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -211,6 +253,15 @@
                         <p>วางรูปจริงตรงนี้ได้ง่าย ๆ เมื่อพร้อม</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="history-section">
+            <h2>ประวัติความเป็นมาของวันสงกรานต์</h2>
+            <p>วันสงกรานต์เป็นเทศกาลปีใหม่ไทยดั้งเดิม มีรากมาจากคำว่า "สังกานต์" ในภาษาสันสกฤต แปลว่า "การเคลื่อนย้าย" หมายถึงการเปลี่ยนฤดูจากหนาวสู่ร้อนตามสุริยคติไทย ซึ่งตรงกับวันที่ 13-15 เมษายนของทุกปี</p>
+            <p>ประวัติความเป็นมาเริ่มต้นจากอินเดียโบราณและพุทธศาสนา โดยพระพุทธเจ้าได้ตรัสถึงการเคลื่อนย้ายของดวงอาทิตย์ในพระสูตรสังกานต์ ในประเทศไทยเริ่มมีบันทึกตั้งแต่สมัยสุโขทัยและอยุธยา โดยเป็นช่วงทำบุญตักบาตร ปล่อยนกปล่อยปลา และรดน้ำซึ่งเป็นสัญลักษณ์ของการล้างสิ่งไม่ดีและต้อนรับสิ่งใหม่</p>
+            <div class="highlight">
+                <p>ในสมัยรัตนโกสินทร์ เทศกาลนี้ได้รับการส่งเสริมให้เป็นวันหยุดราชการ และพัฒนาเป็นประเพณีร่วมสมัยที่มีทั้งความสนุกสนานและการแสดงความเคารพต่อผู้ใหญ่ วันนี้จึงเป็นทั้งวันแห่งวัฒนธรรมไทยและการเฉลิมฉลองปีใหม่ที่ผสมผสานระหว่างประเพณีและนวัตกรรมสมัยใหม่</p>
             </div>
         </section>
     </main>
